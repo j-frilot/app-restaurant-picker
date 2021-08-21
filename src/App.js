@@ -1,12 +1,14 @@
 import Random from "./components/Random";
-import Button from "./components/Button";
+import Options from "./components/Options";
 function App() {
     return (
         <div>
-            <div className="text-center">
-                <h1 className="title display-1 text-warning">What To Eat?</h1>
+            <div className="text-center container">
+                <h1 className="title display-1 text-warning mt-3">
+                    What To Eat?
+                </h1>
                 <Random />
-                <Button />
+                <Options />
             </div>
         </div>
     );
