@@ -15,25 +15,20 @@
     </head>
     <body class="bg-secondary text-center container">
         <header>
-            <h1 class="title display-1 text-warning mt-3"> What To Eat? </h1>
+            <h1 class="title display-1 text-warning my-5"> What To Eat? </h1>
         </header>
         <main>
             <section>
-                <div class="store-info-section"> </div>
+                <div class="store-info-section">
+                    <h1 class="error" style="display: none"
+                        >Choose A Restaurant!</h1
+                    ></div
+                >
             </section>
 
-            <!-- OPTIONS -->
-            <!-- <section class="row">
-                <div class="col-xs-12 col-sm-12 offset-md-4 col-md-4">
-                    <h3 class="">Options:</h3>
-                    <ul class="options-list list-group list-group-flush"> </ul>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-6"></div>
-            </section> -->
-
             <section>
-                <div class="row">
-                    <div class="col-md-6">
+                <div class="row fs-3">
+                    <div class="col-md-4">
                         <input
                             type="checkbox"
                             class="checkbox"
@@ -56,7 +51,7 @@
                         />
                         <label for="vehicle3">Domino's</label><br />
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <input
                             type="checkbox"
                             class="checkbox"
@@ -79,10 +74,33 @@
                         />
                         <label for="vehicle3"> Burger King</label><br />
                     </div>
+                    <div class="col-md-4">
+                        <input
+                            type="checkbox"
+                            class="checkbox"
+                            name="taco-bell"
+                            value="Taco Bell"
+                        />
+                        <label for="vehicle1"> Wendy's</label><br />
+                        <input
+                            type="checkbox"
+                            class="checkbox"
+                            name="waffle-house"
+                            value="Waffle House"
+                        />
+                        <label for="vehicle2"> McDonald's</label><br />
+                        <input
+                            type="checkbox"
+                            class="checkbox"
+                            name="sonic"
+                            value="Sonic"
+                        />
+                        <label for="vehicle3"> Burger King</label><br />
+                    </div>
                 </div>
                 <button
                     type="submit"
-                    class="choose btn btn-warning btn-large my-2"
+                    class="choose btn btn-warning btn-lg my-5"
                 >
                     Choose!
                 </button>

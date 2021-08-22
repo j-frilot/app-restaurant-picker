@@ -1,6 +1,7 @@
 /////     stores data     /////
 let stores = [];
 
+/////     STORE OPTIONS     /////
 const optionalStores = [
     {
         name: "Steak Escape",
@@ -27,6 +28,18 @@ const optionalStores = [
     {
         name: "Burger King",
         logo: "https://res.cloudinary.com/dsip2gx3i/image/upload/v1629584256/random-restaurant/burger-king_aooinx.jpg"
+    },
+    {
+        name: "Waffle House",
+        logo: "https://res.cloudinary.com/dsip2gx3i/image/upload/v1629604096/random-restaurant/waffle-house_uyzdv5.png"
+    },
+    {
+        name: "Taco Bell",
+        logo: "https://res.cloudinary.com/dsip2gx3i/image/upload/v1629604132/random-restaurant/taco-bell_ff8qay.jpg"
+    },
+    {
+        name: "Sonic",
+        logo: "https://res.cloudinary.com/dsip2gx3i/image/upload/v1629604165/random-restaurant/sonic_o7mqjw.png"
     }
 ];
 
@@ -35,19 +48,26 @@ const checkboxes = document.querySelectorAll("input");
 
 checkboxes.forEach((checkbox) => {
     checkbox.addEventListener("click", () => {
-        console.log(checkbox);
+        // console.log("added: ", checkbox.value);
         for (let i = 0; i < optionalStores.length; i++) {
             if (checkbox.checked) {
+                //if checked, must add to list of options
                 if (checkbox.value == optionalStores[i].name) {
                     stores.push(optionalStores[i]);
                 }
             }
-            //             // if (!checkbox.checked) {
-            //             //     const uncheckedIdx = stores.indexOf(optionalStores[i]);
-            //             //     console.log(uncheckedIdx);
-            //             // }
         }
-        console.log(stores);
+        if (!checkbox.checked) {
+            //in the case that a choice is unchecked. must be taken off list to prevent unfair advantage
+            console.log(checkbox.value);
+            const uncheckedIndex = stores.findIndex(
+                //finding the index of store in stores array that was unchecked
+                (store) => checkbox.value == store.name
+            );
+            stores.splice(uncheckedIndex, 1); //using the index that was found in order to remove it from the array
+            // console.log("removed: ", uncheckedIndex);
+        }
+        // console.log(stores);
     });
 });
 
@@ -55,6 +75,10 @@ checkboxes.forEach((checkbox) => {
 const chooseBtn = document.querySelector(".choose");
 
 const selectStore = (e) => {
+    if (stores.length === 0) {
+        document.querySelector(".error").style.display = "block";
+    }
+
     const length = stores.length; //get length of store list to help get number for random number expression
 
     const storeIdx = Math.floor(Math.random() * length); //gives the index of the selected store
@@ -66,12 +90,3 @@ const selectStore = (e) => {
     `;
 };
 chooseBtn.addEventListener("click", selectStore);
-
-/////     LIST STORES IN THE OPTIONS LIST     /////
-// const optionsList = document.querySelector(".options-list");
-
-// optionsList.innerHTML = stores
-//     .map((store) => {
-//         return `<li class="list-group-item bg-secondary">${store.name}</li>`;
-//     })
-//     .join("");
